@@ -1,0 +1,30 @@
+.li {
+  display: inline-table;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 2px;
+  border: 1px solid black;
+  padding: 3px;
+  width: 200px;
+  height: 200px;
+  border-radius: 30%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.p {
+  font-size: 1.2em;
+  line-height: 150%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.5px;
+}
+.p:hover {
+  font-variation-settings: "wght" 582;
+  letter-spacing: 1px;
+}

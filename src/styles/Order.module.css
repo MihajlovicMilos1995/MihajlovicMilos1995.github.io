@@ -1,0 +1,132 @@
+.form {
+  background-color: white;
+  border: 1px solid white;
+  margin-top: 1rem;
+  width: 500px;
+  max-height: 750px;
+  margin-top: -10rem;
+  border-radius: 10px;
+  overflow: auto;
+  padding: 1rem;
+}
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: -0.8rem;
+  margin-top: 0.5rem;
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 5px;
+  border-bottom: 2px solid #8a2b06;
+}
+.cart-item div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.cart-item span {
+  margin-right: 1rem;
+}
+.cart-item span:first-child {
+  flex-basis: 50%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.cart-item span:nth-child(2) {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.cart-item span:last-child {
+  flex-basis: 25%;
+  text-align: right;
+}
+
+.cart-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.cena-header {
+  margin-left: 7rem;
+}
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.control input {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
