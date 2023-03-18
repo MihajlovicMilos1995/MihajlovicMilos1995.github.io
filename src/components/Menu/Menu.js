@@ -11,7 +11,7 @@ const menu = [
   { name: "Ostalo", items: ostalo },
 ];
 
-const Menu = ({ setItemsInCart, itemsInCart }) => {
+const Menu = ({ setItemsInCart, itemsInCart, user, setChk }) => {
   const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
@@ -40,6 +40,8 @@ const Menu = ({ setItemsInCart, itemsInCart }) => {
               items={category.items}
               setItemsInCart={setItemsInCart}
               itemsInCart={itemsInCart}
+              user={user}
+              setChk={setChk}
             />
           )}
         </div>

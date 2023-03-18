@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import style from "../../styles/MenuItem.module.css";
+import { useNavigate } from "react-router-dom";
 
-const MenuItem = ({ items, setItemsInCart, itemsInCart }) => {
+const MenuItem = ({ items, setItemsInCart, itemsInCart, user, setChk }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log(itemsInCart);
   }, [itemsInCart]);
@@ -14,7 +17,10 @@ const MenuItem = ({ items, setItemsInCart, itemsInCart }) => {
       setItemsInCart(
         itemsInCart.map((cartItem) =>
           cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? {
+                ...cartItem,
+                quantity: cartItem.quantity + 1,
+              }
             : cartItem
         )
       );
@@ -29,7 +35,14 @@ const MenuItem = ({ items, setItemsInCart, itemsInCart }) => {
         {items &&
           items.map((item, index) => (
             <li
-              onClick={() => addItemHandler(item)}
+              onClick={() => {
+                if (user) {
+                  addItemHandler(item);
+                } else {
+                  setChk(true);
+                  navigate("/login");
+                }
+              }}
               className={style.li}
               style={{
                 backgroundImage: `url(${item.image})`,

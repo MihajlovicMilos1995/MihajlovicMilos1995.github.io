@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderContainer {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 1rem;
+  width: 50rem;
+  background-color: #ffcc2a;
+  font-weight: bold;
+}
+.itemContainer {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 1rem;
+  width: calc(50rem - 2rem);
+  box-sizing: border-box;
+  background-color: white;
+  justify-content: space-between;
+  font-weight: bold;
+}
+ul li {
+  list-style-type: none;
+}

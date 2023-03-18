@@ -13,8 +13,8 @@
   border-radius: 20px;
 }
 body {
-  background-color: #111;
-  overflow: hidden;
+  background-color: white;
+  overflow: auto;
 }
 
 .container {
@@ -34,7 +34,7 @@ h1 {
   transition: 700ms ease;
   font-variation-settings: "wght" 311;
   margin-bottom: 0.8rem;
-  color: PaleGoldenRod;
+  color: black;
   outline: none;
   text-align: center;
 }

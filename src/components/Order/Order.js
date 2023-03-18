@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "../../styles/Order.module.css";
 import buttonStyle from "../../styles/Cart.module.css";
+import { addDoc, collection } from "firebase/firestore";
+import { db, auth } from "../firebase-config";
 
 const isEmpty = (value) => value.trim() === "";
 const isNumber = (value) => {
@@ -30,6 +32,18 @@ const Order = ({
   const addressInputRef = useRef();
   const cityInputRef = useRef();
   const phoneInputRef = useRef();
+
+  const cartsCollectionRef = collection(db, "Carts");
+  const currentDate = new Date().toLocaleDateString("en-GB");
+
+  const sendCartToDB = async () => {
+    await addDoc(cartsCollectionRef, {
+      items: itemsInCart,
+      total: totalAmount,
+      user: auth.currentUser.uid,
+      date: currentDate,
+    });
+  };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -69,17 +83,20 @@ const Order = ({
       phoneInputRef,
       itemsInCart,
     });
+    sendCartToDB();
+
     setItemsInCart([]);
     localStorage.clear();
     setTotalAmount(0);
     setOrderCompIsShown(false);
     setIsComplete(true);
     console.log(info);
+    navigate("/");
   };
 
   const returnButtonHandler = () => {
     setOrderCompIsShown(false);
-    navigate("/menu");
+    navigate("/");
   };
 
   const nameControlStyle = `${style.control} ${
