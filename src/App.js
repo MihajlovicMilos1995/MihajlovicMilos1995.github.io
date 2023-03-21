@@ -11,6 +11,7 @@ import Order from "./components/Order/Order";
 import Login from "./components/Auth/Login";
 import SignUp from "./components/Auth/SignUp";
 import Profile from "./components/Profile/Profile";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState({});
@@ -105,6 +106,7 @@ function App() {
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

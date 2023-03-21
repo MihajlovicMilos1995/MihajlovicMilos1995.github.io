@@ -32,6 +32,7 @@ const Order = ({
   const addressInputRef = useRef();
   const cityInputRef = useRef();
   const phoneInputRef = useRef();
+  const noteInputref = useRef();
 
   const cartsCollectionRef = collection(db, "Carts");
   const currentDate = new Date().toLocaleDateString("en-GB");
@@ -40,6 +41,7 @@ const Order = ({
     await addDoc(cartsCollectionRef, {
       items: itemsInCart,
       total: totalAmount,
+      note: noteInputref.current.value,
       user: auth.currentUser.uid,
       date: currentDate,
     });
@@ -81,6 +83,7 @@ const Order = ({
       addressInputRef,
       cityInputRef,
       phoneInputRef,
+      noteInputref,
       itemsInCart,
     });
     sendCartToDB();
@@ -196,6 +199,18 @@ const Order = ({
                 }
               ></input>
               {!formInputValidity.phone && <p>Polje mora biti broj!</p>}
+            </div>
+            <div>
+              <label className={style.label} htmlFor="note">
+                Napomena:
+              </label>
+              <input
+                className={style.input}
+                name="note"
+                type="text"
+                ref={noteInputref}
+                placeholder="napomena"
+              />
             </div>
           </div>
           <div className={buttonStyle.actions}>
