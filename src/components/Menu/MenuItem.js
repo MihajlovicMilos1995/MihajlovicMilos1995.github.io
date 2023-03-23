@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import style from "../../styles/MenuItem.module.css";
+import buttonStyles from "../../styles/Cart.module.css";
 import { useNavigate } from "react-router-dom";
 
 const MenuItem = ({ items, setItemsInCart, itemsInCart, user, setChk }) => {
@@ -35,14 +36,6 @@ const MenuItem = ({ items, setItemsInCart, itemsInCart, user, setChk }) => {
         {items &&
           items.map((item, index) => (
             <li
-              onClick={() => {
-                if (user) {
-                  addItemHandler(item);
-                } else {
-                  setChk(true);
-                  navigate("/login");
-                }
-              }}
               className={style.li}
               style={{
                 backgroundImage: `url(${item.image})`,
@@ -57,6 +50,19 @@ const MenuItem = ({ items, setItemsInCart, itemsInCart, user, setChk }) => {
             >
               <p className={style.p}>{item.title}</p>
               <p className={style.p}>{item.price} din</p>
+              <button
+                className={style.button}
+                onClick={() => {
+                  if (user) {
+                    addItemHandler(item);
+                  } else {
+                    setChk(true);
+                    navigate("/login");
+                  }
+                }}
+              >
+                Dodaj u korpu
+              </button>
             </li>
           ))}
       </ul>

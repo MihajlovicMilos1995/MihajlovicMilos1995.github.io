@@ -94,11 +94,11 @@ const Order = ({
     setOrderCompIsShown(false);
     setIsComplete(true);
     console.log(info);
-    navigate("/");
   };
 
   const returnButtonHandler = () => {
     setOrderCompIsShown(false);
+    setIsComplete(false);
     navigate("/");
   };
 
@@ -136,7 +136,7 @@ const Order = ({
             </li>
           ))}
         </ul>
-        {isComplete && <p>Porudzbina je izvrsena</p>}
+        {isComplete && <p style={{ font: "bold" }}>Porudzbina je izvrsena</p>}
         <div className={style.total}>
           <span>Ukupno : &nbsp;</span>
           <span>{totalAmount.toFixed(2)} din</span>
@@ -222,9 +222,11 @@ const Order = ({
               Povratak
             </button>
 
-            <button onClick={onSubmitHandler} className={buttonStyle.button}>
-              Poruci
-            </button>
+            {!isComplete && (
+              <button onClick={onSubmitHandler} className={buttonStyle.button}>
+                Poruci
+              </button>
+            )}
           </div>
         </div>
       </form>

@@ -29,3 +29,18 @@
   font-variation-settings: "wght" 582;
   letter-spacing: 1px;
 }
+.button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #ffcc2a;
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+.button:hover {
+  background-color: black;
+  border-color: #ffcc2a;
+  color: white;
+}
